@@ -1,5 +1,7 @@
 <template>
 <h1>City Weather</h1>
+<img v-if="isError" src="../assets/image/error.png" alt="error">
+<img v-if="isLoading" src="../assets/image/error.png" alt="loading">
 <div v-for="(item, index) in data" :key="index">
         {{ item }}
     <button @click="deleteCity(item[0])">Eliminar</button>

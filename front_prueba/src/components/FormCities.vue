@@ -43,7 +43,7 @@ async function createCity(){
             temperature: dataTemperature.value,
             rain_probability: dataRain.value
         })
-        // location.reload()
+         location.reload()
     }catch(error){
         console.log(error)
         isError = true
