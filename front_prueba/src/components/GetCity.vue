@@ -14,10 +14,8 @@ import {ref} from "vue"
 
 let dataID_get= ref("")
 
-
 async function getCity(id){
     dataID_get.value = id
-    
 }
 
 </script>
