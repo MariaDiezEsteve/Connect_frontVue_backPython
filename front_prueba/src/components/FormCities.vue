@@ -20,7 +20,6 @@
         </div>        
     </form>
     <button @click="createCity">Crear</button>
-    <button>Una city </button>
 </template>
 
 <script setup>
