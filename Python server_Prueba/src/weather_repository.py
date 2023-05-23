@@ -11,9 +11,27 @@ def read_all():
     cur = con.cursor()
     res = cur.execute("SELECT * FROM cities")
     rows = res.fetchall()
-    con.close()
     
-    return rows
+    #Opción 1: Para cambiar los valores de la lista en tuplas (objetos)
+    city_list = []
+
+    for row in rows:
+        row = {"id": row[0],
+               "name": row[1],
+               "temperature": row[2],
+               "rain_probability": row[3]
+               }
+        city_list.append(row)
+        print("que es esto ", row)
+
+    return city_list
+
+     #Opción 2: Para cambiar los valores de la lista en tuplas (objetos)
+    """
+    columnas = ["id", "name", "temperature", "rain_probaility"]
+    datos_dict[dict(zip(columnas, fila)) for fila in rows]
+    return datos_dict
+    """
 
 
 def read(city_id):
@@ -46,3 +64,15 @@ def remove_city(id):
     cur.execute("DELETE FROM cities WHERE id=?", [id])
     con.commit()
     con.close()
+
+#Modificar
+
+def update(new_name, new_temperature, new_rain_probability):
+    con = sqlite3.connect("weather.db")
+    cur = con.cursor()
+    res = "UPDATE cities SET name = ?, temperature = ?, rain_probability = ? WHERE id = ?"
+    values = (new_name, new_temperature, new_rain_probability)
+    cur.execute(res, values)
+    con.commit()
+    con.close()
+    
