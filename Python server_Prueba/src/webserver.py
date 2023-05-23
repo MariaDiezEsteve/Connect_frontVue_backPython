@@ -30,6 +30,12 @@ def new_cities():
 def delete_city(id):
       remove_city(id) 
       return ""
+  
+@app.route("/cities/<city_id>", methods=["PUT"])
+def update_city(city_id):
+    data = request.get_json()
+    update_city_data(city_id, data)
+    return ""
 
 
 if __name__ == "__main__":
