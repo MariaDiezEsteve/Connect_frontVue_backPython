@@ -74,16 +74,18 @@ let getId = ref("")
 
 function editCity(id){
     getId.value = id 
+    console.log("getID", getId.value)
     showEdit.value = true
 }
 
 async function enviarCity(){
     try{
-        await axios.put(`http://localhost:5000/cities/${getId.value }` , {
-            "name": editName.value,
-            "temperature": editTemperature.value,
-            "rain_probability": editRain.value
+        await axios.put(`http://localhost:5000/cities/${getId.value}`, {
+            name: editName.value,
+            temperature: editTemperature.value,
+            rain_probability: editRain.value
         })
+        
     }catch(error){
         console.log(error)
         isError = true
