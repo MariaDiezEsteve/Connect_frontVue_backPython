@@ -1,3 +1,4 @@
+<!-- Este componente es para visualizar una ciudad por su ID -->
 <template>
   <h1>Consigue una city</h1>
   <img v-if="isError" src="../assets/image/error.png" alt="error">
@@ -8,7 +9,7 @@
     </div>
     <button @click="getCity">City</button>
   </form>
-  <div v-show="hidden ">
+  <div v-show="show">
     <p>Name: {{  data.name }}</p> 
     <p>Temperature: {{ data.temperature}}</p> 
     <p>Rain_Probility: {{ data.rain_probability }}</p>
@@ -22,7 +23,7 @@ import axios from "axios"
 let dataID_get= ref("")
 let isError = false
 let data = ref("")
-let hidden = ref(false)
+let show= ref(false)
 
 
 async function getCity(){
@@ -31,7 +32,7 @@ async function getCity(){
       let response = await axios.get(`http://localhost:5000/cities/${dataID_get.value}`)
       data.value = await response.data
       console.log("esto es data", data.value)
-      hidden.value = true
+      show.value = true
      
     }catch(error){
       console.log(error)

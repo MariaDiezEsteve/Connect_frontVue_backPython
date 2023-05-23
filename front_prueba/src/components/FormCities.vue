@@ -1,3 +1,5 @@
+<!-- Este componente es para crear uan nueva ciudad-->
+
 <template>
   <h1>Formulario para crear city</h1>
   <img v-if="isError" src="../assets/image/error.png" alt="error">
