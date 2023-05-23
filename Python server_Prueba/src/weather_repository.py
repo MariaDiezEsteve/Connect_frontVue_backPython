@@ -98,11 +98,19 @@ def update(new_id, new_name, new_temperature, new_rain_probability):
     finally:
         con.close()
 
-#Esta función sirve para incluir la data actualizada.
+#Esta función recoge la data que viene del Front
 
 def update_city_data(city_id, data):
+    #Esta función hace dos tareas:
+    #1. Guardar los valores que vienen del front en variables
     new_name = data.get("name")
     new_temperature = data.get("temperature")
     new_rain_probability = data.get("rain_probability")
+    # print("este es el nombre", new_name)
+    # print("esto es data", data)
     
+    #2. Pasar eso valores a la función update que tenemos en la parte de arriba para actualizar la BBDD.
+    #Estamos llamando a la función de update con los valores del front
     update(city_id, new_name, new_temperature, new_rain_probability)
+    #Ejemplo valores:
+    #update("ALI", "Alicante", 41, 0.0)
