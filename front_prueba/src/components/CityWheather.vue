@@ -47,6 +47,9 @@ let editName = ref("")
 let editTemperature = ref("")
 let editRain = ref("")
 
+
+// onMounted es la función que renderiza la paǵina cuando se llama.
+
 onMounted(() => {
     getCities()
 })

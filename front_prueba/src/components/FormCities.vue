@@ -45,7 +45,7 @@ async function createCity(){
             temperature: dataTemperature.value,
             rain_probability: dataRain.value
         })
-         location.reload()
+         location.reload() // recarga la página cuando se ejecuta la creación de una nueva city
     }catch(error){
         console.log(error)
         isError = true
