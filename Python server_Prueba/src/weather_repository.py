@@ -21,7 +21,7 @@ def read_all():
                 "temperature": row[2],
                 "rain_probability": row[3]
                 }
-            city_list.append(row)
+            city_list.append(row) #esto es para incluir en city_list cada uno de las tuplas creadas (row)
             print("que es esto ", row)
         return city_list
     except:
@@ -64,6 +64,9 @@ def create(weather):
                 weather['temperature'], weather['rain_probability'])
         cur.execute(res, valores)
         con.commit()
+        # print("Esto es mi data weather", weather)
+        # Esto es mi data weather 
+        # {'id': 'BAR', 'name': 'Barcelona', 'temperature': '20', 'rain_probability': '0.2'}
     except:
         None
     finally:
@@ -97,14 +100,20 @@ def update(new_id, new_name, new_temperature, new_rain_probability):
 
 #Esta función recoge la data que viene del Front
 
-def update_city_data(city_id, data):
+def update_city_data(city_id, data): #recoge los datos del front: data
     #Esta función hace dos tareas:
     #1. Guardar los valores que vienen del front en variables
     new_name = data.get("name")
     new_temperature = data.get("temperature")
     new_rain_probability = data.get("rain_probability")
     # print("este es el nombre", new_name)
-    # print("esto es data", data)
+    # print("esto es data", data) 
+    # data {
+    #  'name': 'Valencia',  
+    #  'temperature': '10', 
+    #  'rain_probability': '0.2'
+    #  }
+    
     
     #2. Pasar eso valores a la función update que tenemos en la parte de arriba para actualizar la BBDD.
     #Estamos llamando a la función de update con los valores del front
