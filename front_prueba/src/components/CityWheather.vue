@@ -3,6 +3,7 @@
 <h1>City Weather</h1>
 <img v-if="isError" src="../assets/image/error.png" alt="error">
 <img v-if="isLoading" src="../assets/image/error.png" alt="loading">
+{{  data }}
 <div v-for="dta in data" :key="dta.id">
      <p>Name:  {{ dta.name}}</p>
      <p>Temperature:  {{ dta.temperature}}</p>
@@ -88,6 +89,7 @@ async function enviarCity(){
             temperature: editTemperature.value,
             rain_probability: editRain.value
         })
+        location.reload() 
         
     }catch(error){
         console.log(error)

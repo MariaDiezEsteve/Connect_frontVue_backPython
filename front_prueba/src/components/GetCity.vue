@@ -10,9 +10,13 @@
     <button @click="getCity">City</button>
   </form>
   <div v-show="show">
+    {{ data }}
     <p>Name: {{  data.name }}</p> 
     <p>Temperature: {{ data.temperature}}</p> 
     <p>Rain_Probility: {{ data.rain_probability }}</p>
+  </div>
+  <div v-show="patata">
+    <p>Existe un error en la base de datos </p>
   </div>
 </template>
 
@@ -24,7 +28,7 @@ let dataID_get= ref("")
 let isError = false
 let data = ref("")
 let show= ref(false)
-
+let patata = ref(false)
 
 async function getCity(){
 
@@ -37,6 +41,7 @@ async function getCity(){
     }catch(error){
       console.log(error)
       isError = true
+      patata.value = true
     }
 }
 
