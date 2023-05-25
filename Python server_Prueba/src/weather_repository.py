@@ -15,7 +15,6 @@ def read_all():
         
         #Opción 1: Para cambiar los valores de la lista en tuplas (objetos)
         city_list = []
-
         for row in rows:
             row = {"id": row[0],
                 "name": row[1],
@@ -24,7 +23,6 @@ def read_all():
                 }
             city_list.append(row)
             print("que es esto ", row)
-
         return city_list
     except:
         None
@@ -45,7 +43,6 @@ def read(city_id):
         cur = con.cursor()
         res = cur.execute("SELECT * FROM cities WHERE id=?", [city_id])
         row = res.fetchone()
-
 
         city = {"id": row[0],
                 "name": row[1],
@@ -114,3 +111,16 @@ def update_city_data(city_id, data):
     update(city_id, new_name, new_temperature, new_rain_probability)
     #Ejemplo valores:
     #update("ALI", "Alicante", 41, 0.0)
+    
+#Ejemplo de llamada de una función con variables.
+
+# def saludo(nombre, apellido):
+#     return nombre + apellido
+
+# print(saludo("Mohamed ","elbrahim"))
+# print(saludo("May ","Torres"))
+
+# name = "el valor que me venga del front"
+# surname = "el valor que me venga del front"
+
+# saludo(name, surname)
